@@ -1,0 +1,28 @@
+# Saída do build do Jekyll. O GitHub Pages gera isso no servidor a cada push.
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Ruby / Bundler
+vendor/
+.bundle/
+*.gem
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code (configurações locais da máquina)
+.claude/settings.local.json

@@ -1,0 +1,44 @@
+title: Matheus Phranco
+tagline: Software Engineer
+description: >-
+  Software engineer. Here you'll find what I do, thoughts and opinions.
+url: "https://matttheus.github.io"
+baseurl: ""
+lang: en-US
+timezone: America/Sao_Paulo
+
+author: Matheus Phranco
+email: matheusphranco@gmail.com
+github_username: matttheus
+youtube_handle: matheusphranco
+linkedin_username: matheus-phranco
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/matheus.jpg
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+header_pages:
+  - about.md
+  - articles.md
+  - contact.md
+
+permalink: /:year/:month/:title/
+
+minima:
+  date_format: "%B %-d, %Y"
+
+show_excerpts: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/

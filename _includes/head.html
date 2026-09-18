@@ -1,0 +1,21 @@
+{%- comment -%}
+Sobrescreve o head.html do tema minima 2.5 (que não tem ponto de extensão)
+apenas para adicionar o favicon. O resto é idêntico ao original do tema.
+{%- endcomment -%}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
+
+  <link rel="icon" href="{{ "/favicon.ico" | relative_url }}" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/img/favicon-32.png" | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/img/favicon-16.png" | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/img/apple-touch-icon.png" | relative_url }}">
+
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+</head>

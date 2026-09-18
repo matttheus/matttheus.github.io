@@ -1,0 +1,36 @@
+---
+# Sobrescreve o CSS do tema: importa o minima inteiro e adiciona o que
+# for nosso embaixo. O bloco de front matter vazio acima é obrigatório
+# para o Jekyll processar o arquivo.
+---
+@import "minima";
+
+// Foto de perfil da home: redonda, à direita do texto; centralizada no celular.
+.profile-photo {
+  float: right;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 0 1em 1.5em;
+
+  @include media-query($on-palm) {
+    float: none;
+    display: block;
+    margin: 0 auto 1.5em;
+  }
+}
+
+// Rodapé: no tema a coluna dos links sociais tem só 20% de largura e nomes
+// longos quebravam em duas linhas. Redistribui as colunas (30/30/40) em telas
+// grandes, sem mexer no comportamento responsivo do tema, e impede a quebra
+// entre o ícone e o nome.
+@media screen and (min-width: #{$on-laptop + 1}) {
+  .footer-col-1 { width: calc(30% - (#{$spacing-unit} / 2)); }
+  .footer-col-2 { width: calc(30% - (#{$spacing-unit} / 2)); }
+  .footer-col-3 { width: calc(40% - (#{$spacing-unit} / 2)); }
+}
+
+.social-media-list li {
+  white-space: nowrap;
+}
