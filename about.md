@@ -5,9 +5,7 @@ permalink: /about/
 description: Who Matheus is and why this site exists.
 ---
 
-My name is Matheus Phranco and I'm a software engineer. I'm the founder of
-[Saphira Soluções](https://saphirasolucoes.com/), a technology consultancy
-that designs and builds software, and I make videos on
+My name is Matheus Phranco and I'm a software engineer. I also make videos on
 [YouTube](https://www.youtube.com/@{{ site.youtube_handle }}).
 
 I created this site for two reasons:

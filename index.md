@@ -10,9 +10,6 @@ internet: here you'll find what I do, thoughts and opinions.
 
 ## What I do
 
-**Company.** I'm the founder of [Saphira Soluções](https://saphirasolucoes.com/),
-a technology consultancy that designs and builds software.
-
 **YouTube.** My channel [@{{ site.youtube_handle }}](https://www.youtube.com/@{{ site.youtube_handle }})
 follows the same idea as this blog: videos about technology, finance, ideas,
 and personal life. Same topics, different format.
