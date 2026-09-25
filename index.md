@@ -11,8 +11,8 @@ internet: here you'll find what I do, thoughts and opinions.
 ## What I do
 
 **YouTube.** My channel [@{{ site.youtube_handle }}](https://www.youtube.com/@{{ site.youtube_handle }})
-follows the same idea as this blog: videos about technology, finance, ideas,
-and personal life. Same topics, different format.
+follows the same idea as this blog: videos about computer science, software
+engineering, and my journey. Same topics, different format.
 
 ## Contact
 
