@@ -34,3 +34,148 @@
 .social-media-list li {
   white-space: nowrap;
 }
+
+// Botão de tema claro/escuro no header (ver _includes/header.html). Herda o
+// espaçamento de .page-link; aqui só zera a aparência padrão de <button>.
+.theme-toggle {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: $text-color;
+  cursor: pointer;
+  vertical-align: middle;
+
+  svg {
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .icon-sun { display: none; }
+
+  &[hidden] { display: none; }
+}
+
+// No celular os links do menu viram blocos alinhados à direita; o <button>
+// não estica como um <a>, então empurra ele para a direita com margem auto.
+@include media-query($on-palm) {
+  .site-nav .theme-toggle { margin-left: auto; }
+}
+
+// Tema escuro, com as cores do VS Code (tema Dark Modern na interface e
+// Dark+ no código). O minima 2.5 calcula as cores no Sass (lighten/darken),
+// então não dá para trocá-las por variáveis CSS: em vez disso, sobrescreve
+// cada regra de cor do tema quando o <html> tem data-theme="dark".
+$dark-bg:         #1f1f1f;
+$dark-bg-alt:     #181818;
+$dark-border:     #2b2b2b;
+$dark-text:       #cccccc;
+$dark-text-muted: #9d9d9d;
+$dark-heading:    #e7e7e7;
+$dark-link:       #4daafc;
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  body {
+    color: $dark-text;
+    background-color: $dark-bg;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong { color: $dark-heading; }
+
+  a {
+    color: $dark-link;
+    &:visited { color: $dark-link; }
+    &:hover { color: $dark-heading; }
+  }
+
+  blockquote {
+    color: $dark-text-muted;
+    border-left-color: $dark-border;
+  }
+
+  pre, code {
+    border-color: $dark-border;
+    background-color: $dark-bg-alt;
+  }
+
+  table {
+    color: $dark-text;
+    border-color: $dark-border;
+    tr:nth-child(even) { background-color: $dark-bg-alt; }
+    th { background-color: #252526; border-color: $dark-border; }
+    td { border-color: $dark-border; }
+  }
+
+  hr { border-color: $dark-border; }
+
+  .svg-icon { fill: $dark-text-muted; }
+
+  .site-header {
+    border-top-color: #0078d4;
+    border-bottom-color: $dark-border;
+  }
+
+  .site-title,
+  .site-title:visited { color: $dark-heading; }
+
+  .site-nav {
+    .page-link { color: $dark-text; }
+    .menu-icon > svg { fill: $dark-text; }
+
+    @include media-query($on-palm) {
+      background-color: $dark-bg;
+      border-color: $dark-border;
+    }
+  }
+
+  .theme-toggle {
+    color: $dark-text;
+    .icon-moon { display: none; }
+    .icon-sun { display: block; }
+  }
+
+  .site-footer { border-top-color: $dark-border; }
+  .footer-col-wrapper,
+  .post-meta { color: $dark-text-muted; }
+
+  // Código: paleta Dark+ do VS Code.
+  .highlight,
+  .highlighter-rouge .highlight {
+    background: $dark-bg-alt;
+    color: #d4d4d4;
+
+    .c, .cm, .c1, .cs     { color: #6a9955; }                 // comentários
+    .cp                   { color: #c586c0; }                 // pré-processador
+    .err                  { color: #f44747; background: none; }
+    .k, .kd, .kp, .kr     { color: #569cd6; }                 // palavras-chave
+    .kc                   { color: #569cd6; }                 // true, false, null
+    .kt, .nc, .nn, .bp    { color: #4ec9b0; }                 // tipos e classes
+    .o, .ow               { color: #d4d4d4; }                 // operadores
+    .s, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .s1 { color: #ce9178; } // strings
+    .sr                   { color: #d16969; }                 // regex
+    .ss                   { color: #4fc1ff; }                 // símbolos
+    .m, .mf, .mh, .mi, .mo, .il { color: #b5cea8; }           // números
+    .nf, .ne              { color: #dcdcaa; }                 // funções
+    .nb                   { color: #4ec9b0; }                 // built-ins
+    .na                   { color: #9cdcfe; }                 // atributos
+    .no                   { color: #4fc1ff; }                 // constantes
+    .ni                   { color: #d7ba7d; }                 // entidades HTML
+    .nt                   { color: #569cd6; }                 // tags HTML
+    .nv, .vc, .vg, .vi    { color: #9cdcfe; }                 // variáveis
+    .w                    { color: #d4d4d4; }
+    .gd                   { color: #f14c4c; background: #4b1818; } // diff: removido
+    .gi                   { color: #73c991; background: #1e3a1e; } // diff: adicionado
+    .gd .x, .gi .x        { background: none; }
+    .gh, .gu              { color: #569cd6; }
+    .ge, .gs              { color: inherit; }
+    .gr, .gt              { color: #f44747; }
+    .go                   { color: #9d9d9d; }
+    .gp                   { color: #6a9955; }
+  }
+}

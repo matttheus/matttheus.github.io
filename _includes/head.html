@@ -7,6 +7,32 @@ O resto é idêntico ao original do tema.
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- comment -%}
+  Tema claro/escuro: roda antes do CSS para a página já nascer com o tema
+  certo, sem piscar branco. Usa a escolha salva pelo botão do header e, se
+  não houver, segue o sistema (inclusive se o sistema mudar depois).
+  {%- endcomment -%}
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var media = window.matchMedia("(prefers-color-scheme: dark)");
+      function saved() {
+        try { return localStorage.getItem("theme"); } catch (e) { return null; }
+      }
+      function apply() {
+        var theme = saved();
+        if (theme !== "light" && theme !== "dark") {
+          theme = media.matches ? "dark" : "light";
+        }
+        root.setAttribute("data-theme", theme);
+      }
+      apply();
+      media.addEventListener("change", function () {
+        if (!saved()) apply();
+      });
+    })();
+  </script>
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   {%- feed_meta -%}
