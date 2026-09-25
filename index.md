@@ -14,9 +14,6 @@ internet: here you'll find what I do, thoughts and opinions.
 follows the same idea as this blog: videos about technology, finance, ideas,
 and personal life. Same topics, different format.
 
-**Articles.** I've written for other sites and publications. The full list
-is on the [Articles](/articles/) page.
-
 ## Contact
 
 Want to talk? Reach me by [email](mailto:{{ site.email }}), on

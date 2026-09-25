@@ -27,7 +27,6 @@ plugins:
 
 header_pages:
   - about.md
-  - articles.md
   - contact.md
 
 permalink: /:year/:month/:title/
