@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Circuit breaker. wtf?"
+title: "Circuit breaker"
 description: "Resilient applications, fault tolerance and the circuit breaker pattern: what Martin Fowler and Netflix say about it, and what I built on top of that."
 excerpt: "Resilient applications, fault tolerance and the circuit breaker pattern: what Martin Fowler and Netflix say about it, and what I built on top of that."
 tags: [distributed-systems, resilience, nodejs]
