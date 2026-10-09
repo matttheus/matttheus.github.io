@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="t">Load test: the dependency goes down for 20 seconds</title><desc id="d">Responses per second by status and p95 latency over 60 seconds at 50 requests per second. The dependency fails between 15 and 35 seconds. The circuit opens after about 5 seconds, turning slow 502 errors into 503 responses in about 1 ms, and closes after the dependency recovers.</desc>
+<rect width="960" height="600" rx="20" fill="#181818"/>
+<rect x="0.5" y="0.5" width="959" height="599" rx="20" fill="none" stroke="#2b2b2b"/>
+<text x="36.0" y="44.0" font-size="21" fill="#e7e7e7" text-anchor="start" font-weight="700">The dependency goes down for 20 seconds</text>
+<text x="36.0" y="68.0" font-size="14" fill="#9d9d9d" text-anchor="start" font-weight="400">50 requests/s to POST /sync/payments. The circuit turns slow errors into instant ones.</text>
+<rect x="36" y="90" width="12" height="12" rx="3" fill="#3987e5"/>
+<text x="54.0" y="100.0" font-size="13" fill="#cccccc" text-anchor="start" font-weight="400">200 OK</text>
+<rect x="123.2" y="90" width="12" height="12" rx="3" fill="#d95926"/>
+<text x="141.2" y="100.0" font-size="13" fill="#cccccc" text-anchor="start" font-weight="400">502 error from the dependency</text>
+<rect x="376.0" y="90" width="12" height="12" rx="3" fill="#199e70"/>
+<text x="394.0" y="100.0" font-size="13" fill="#cccccc" text-anchor="start" font-weight="400">503 fail fast (circuit open)</text>
+<text x="66.0" y="135.0" font-size="12" fill="#9d9d9d" text-anchor="end" font-weight="400">circuit</text>
+<rect x="77.0" y="120" width="280.7" height="22" rx="5" fill="#262626"/>
+<text x="217.3" y="135.5" font-size="11.5" fill="#9d9d9d" text-anchor="middle" font-weight="700">CLOSED</text>
+<rect x="359.7" y="120" width="139.3" height="22" rx="5" fill="#3a2323"/>
+<text x="429.3" y="135.5" font-size="11.5" fill="#fca5a5" text-anchor="middle" font-weight="700">OPEN</text>
+<rect x="501.0" y="120" width="12.1" height="22" rx="5" fill="#3a3220"/>
+<rect x="515.1" y="120" width="139.3" height="22" rx="5" fill="#3a2323"/>
+<text x="584.8" y="135.5" font-size="11.5" fill="#fca5a5" text-anchor="middle" font-weight="700">OPEN</text>
+<rect x="656.5" y="120" width="26.3" height="22" rx="5" fill="#3a3220"/>
+<rect x="684.7" y="120" width="238.3" height="22" rx="5" fill="#262626"/>
+<text x="803.9" y="135.5" font-size="11.5" fill="#9d9d9d" text-anchor="middle" font-weight="700">CLOSED</text>
+<rect x="288.0" y="184" width="282.7" height="210" fill="#ffffff" fill-opacity="0.045"/>
+<line x1="288.0" y1="184" x2="288.0" y2="394" stroke="#555" stroke-width="1"/>
+<line x1="570.7" y1="184" x2="570.7" y2="394" stroke="#555" stroke-width="1"/>
+<text x="429.3" y="200.0" font-size="12" fill="#cccccc" text-anchor="middle" font-weight="600">dependency down</text>
+<line x1="76" y1="394.0" x2="924" y2="394.0" stroke="#383835"/>
+<text x="66.0" y="398.0" font-size="12" fill="#9d9d9d" text-anchor="end" font-weight="400">0</text>
+<line x1="76" y1="334.0" x2="924" y2="334.0" stroke="#2c2c2a"/>
+<text x="66.0" y="338.0" font-size="12" fill="#9d9d9d" text-anchor="end" font-weight="400">20</text>
+<line x1="76" y1="274.0" x2="924" y2="274.0" stroke="#2c2c2a"/>
+<text x="66.0" y="278.0" font-size="12" fill="#9d9d9d" text-anchor="end" font-weight="400">40</text>
+<line x1="76" y1="214.0" x2="924" y2="214.0" stroke="#2c2c2a"/>
+<text x="66.0" y="218.0" font-size="12" fill="#9d9d9d" text-anchor="end" font-weight="400">60</text>
+<text x="76.0" y="172.0" font-size="12" fill="#9d9d9d" text-anchor="start" font-weight="400">responses per second</text>
+<path d="M77.0 394.0 L77.0 347.0 Q77.0 343.0 81.0 343.0 L85.1 343.0 Q89.1 343.0 89.1 347.0 L89.1 394.0 Z" fill="#3987e5"/>
+<path d="M91.1 394.0 L91.1 248.0 Q91.1 244.0 95.1 244.0 L99.3 244.0 Q103.3 244.0 103.3 248.0 L103.3 394.0 Z" fill="#3987e5"/>
+<path d="M105.3 394.0 L105.3 248.0 Q105.3 244.0 109.3 244.0 L113.4 244.0 Q117.4 244.0 117.4 248.0 L117.4 394.0 Z" fill="#3987e5"/>
+<path d="M119.4 394.0 L119.4 248.0 Q119.4 244.0 123.4 244.0 L127.5 244.0 Q131.5 244.0 131.5 248.0 L131.5 394.0 Z" fill="#3987e5"/>
+<path d="M133.5 394.0 L133.5 248.0 Q133.5 244.0 137.5 244.0 L141.7 244.0 Q145.7 244.0 145.7 248.0 L145.7 394.0 Z" fill="#3987e5"/>
+<path d="M147.7 394.0 L147.7 248.0 Q147.7 244.0 151.7 244.0 L155.8 244.0 Q159.8 244.0 159.8 248.0 L159.8 394.0 Z" fill="#3987e5"/>
+<path d="M161.8 394.0 L161.8 248.0 Q161.8 244.0 165.8 244.0 L169.9 244.0 Q173.9 244.0 173.9 248.0 L173.9 394.0 Z" fill="#3987e5"/>
+<path d="M175.9 394.0 L175.9 248.0 Q175.9 244.0 179.9 244.0 L184.1 244.0 Q188.1 244.0 188.1 248.0 L188.1 394.0 Z" fill="#3987e5"/>
+<path d="M190.1 394.0 L190.1 248.0 Q190.1 244.0 194.1 244.0 L198.2 244.0 Q202.2 244.0 202.2 248.0 L202.2 394.0 Z" fill="#3987e5"/>
+<path d="M204.2 394.0 L204.2 248.0 Q204.2 244.0 208.2 244.0 L212.3 244.0 Q216.3 244.0 216.3 248.0 L216.3 394.0 Z" fill="#3987e5"/>
+<path d="M218.3 394.0 L218.3 248.0 Q218.3 244.0 222.3 244.0 L226.5 244.0 Q230.5 244.0 230.5 248.0 L230.5 394.0 Z" fill="#3987e5"/>
+<path d="M232.5 394.0 L232.5 248.0 Q232.5 244.0 236.5 244.0 L240.6 244.0 Q244.6 244.0 244.6 248.0 L244.6 394.0 Z" fill="#3987e5"/>
+<path d="M246.6 394.0 L246.6 248.0 Q246.6 244.0 250.6 244.0 L254.7 244.0 Q258.7 244.0 258.7 248.0 L258.7 394.0 Z" fill="#3987e5"/>
+<path d="M260.7 394.0 L260.7 248.0 Q260.7 244.0 264.7 244.0 L268.9 244.0 Q272.9 244.0 272.9 248.0 L272.9 394.0 Z" fill="#3987e5"/>
+<path d="M274.9 394.0 L274.9 248.0 Q274.9 244.0 278.9 244.0 L283.0 244.0 Q287.0 244.0 287.0 248.0 L287.0 394.0 Z" fill="#3987e5"/>
+<rect x="289.0" y="292.0" width="12.1" height="102.0" fill="#3987e5"/>
+<path d="M289.0 290.0 L289.0 246.0 Q289.0 242.0 293.0 242.0 L297.1 242.0 Q301.1 242.0 301.1 246.0 L301.1 290.0 Z" fill="#d95926"/>
+<path d="M303.1 394.0 L303.1 248.0 Q303.1 244.0 307.1 244.0 L311.3 244.0 Q315.3 244.0 315.3 248.0 L315.3 394.0 Z" fill="#d95926"/>
+<path d="M317.3 394.0 L317.3 248.0 Q317.3 244.0 321.3 244.0 L325.4 244.0 Q329.4 244.0 329.4 248.0 L329.4 394.0 Z" fill="#d95926"/>
+<path d="M331.4 394.0 L331.4 248.0 Q331.4 244.0 335.4 244.0 L339.5 244.0 Q343.5 244.0 343.5 248.0 L343.5 394.0 Z" fill="#d95926"/>
+<path d="M345.5 394.0 L345.5 248.0 Q345.5 244.0 349.5 244.0 L353.7 244.0 Q357.7 244.0 357.7 248.0 L357.7 394.0 Z" fill="#d95926"/>
+<rect x="359.7" y="325.0" width="12.1" height="69.0" fill="#d95926"/>
+<path d="M359.7 323.0 L359.7 231.0 Q359.7 227.0 363.7 227.0 L367.8 227.0 Q371.8 227.0 371.8 231.0 L371.8 323.0 Z" fill="#199e70"/>
+<path d="M373.8 394.0 L373.8 248.0 Q373.8 244.0 377.8 244.0 L381.9 244.0 Q385.9 244.0 385.9 248.0 L385.9 394.0 Z" fill="#199e70"/>
+<path d="M387.9 394.0 L387.9 248.0 Q387.9 244.0 391.9 244.0 L396.1 244.0 Q400.1 244.0 400.1 248.0 L400.1 394.0 Z" fill="#199e70"/>
+<path d="M402.1 394.0 L402.1 248.0 Q402.1 244.0 406.1 244.0 L410.2 244.0 Q414.2 244.0 414.2 248.0 L414.2 394.0 Z" fill="#199e70"/>
+<path d="M416.2 394.0 L416.2 248.0 Q416.2 244.0 420.2 244.0 L424.3 244.0 Q428.3 244.0 428.3 248.0 L428.3 394.0 Z" fill="#199e70"/>
+<path d="M430.3 394.0 L430.3 248.0 Q430.3 244.0 434.3 244.0 L438.5 244.0 Q442.5 244.0 442.5 248.0 L442.5 394.0 Z" fill="#199e70"/>
+<path d="M444.5 394.0 L444.5 248.0 Q444.5 244.0 448.5 244.0 L452.6 244.0 Q456.6 244.0 456.6 248.0 L456.6 394.0 Z" fill="#199e70"/>
+<path d="M458.6 394.0 L458.6 248.0 Q458.6 244.0 462.6 244.0 L466.7 244.0 Q470.7 244.0 470.7 248.0 L470.7 394.0 Z" fill="#199e70"/>
+<path d="M472.7 394.0 L472.7 248.0 Q472.7 244.0 476.7 244.0 L480.9 244.0 Q484.9 244.0 484.9 248.0 L484.9 394.0 Z" fill="#199e70"/>
+<path d="M486.9 394.0 L486.9 248.0 Q486.9 244.0 490.9 244.0 L495.0 244.0 Q499.0 244.0 499.0 248.0 L499.0 394.0 Z" fill="#199e70"/>
+<path d="M501.0 394.0 L501.0 248.0 Q501.0 244.0 505.0 244.0 L509.1 244.0 Q513.1 244.0 513.1 248.0 L513.1 394.0 Z" fill="#199e70"/>
+<path d="M515.1 394.0 L515.1 248.0 Q515.1 244.0 519.1 244.0 L523.3 244.0 Q527.3 244.0 527.3 248.0 L527.3 394.0 Z" fill="#199e70"/>
+<path d="M529.3 394.0 L529.3 248.0 Q529.3 244.0 533.3 244.0 L537.4 244.0 Q541.4 244.0 541.4 248.0 L541.4 394.0 Z" fill="#199e70"/>
+<path d="M543.4 394.0 L543.4 248.0 Q543.4 244.0 547.4 244.0 L551.5 244.0 Q555.5 244.0 555.5 248.0 L555.5 394.0 Z" fill="#199e70"/>
+<path d="M557.5 394.0 L557.5 248.0 Q557.5 244.0 561.5 244.0 L565.7 244.0 Q569.7 244.0 569.7 248.0 L569.7 394.0 Z" fill="#199e70"/>
+<path d="M571.7 394.0 L571.7 248.0 Q571.7 244.0 575.7 244.0 L579.8 244.0 Q583.8 244.0 583.8 248.0 L583.8 394.0 Z" fill="#199e70"/>
+<path d="M585.8 394.0 L585.8 248.0 Q585.8 244.0 589.8 244.0 L593.9 244.0 Q597.9 244.0 597.9 248.0 L597.9 394.0 Z" fill="#199e70"/>
+<path d="M599.9 394.0 L599.9 248.0 Q599.9 244.0 603.9 244.0 L608.1 244.0 Q612.1 244.0 612.1 248.0 L612.1 394.0 Z" fill="#199e70"/>
+<path d="M614.1 394.0 L614.1 248.0 Q614.1 244.0 618.1 244.0 L622.2 244.0 Q626.2 244.0 626.2 248.0 L626.2 394.0 Z" fill="#199e70"/>
+<path d="M628.2 394.0 L628.2 248.0 Q628.2 244.0 632.2 244.0 L636.3 244.0 Q640.3 244.0 640.3 248.0 L640.3 394.0 Z" fill="#199e70"/>
+<path d="M642.3 394.0 L642.3 248.0 Q642.3 244.0 646.3 244.0 L650.5 244.0 Q654.5 244.0 654.5 248.0 L654.5 394.0 Z" fill="#199e70"/>
+<path d="M656.5 394.0 L656.5 248.0 Q656.5 244.0 660.5 244.0 L664.6 244.0 Q668.6 244.0 668.6 248.0 L668.6 394.0 Z" fill="#199e70"/>
+<path d="M670.6 394.0 L670.6 248.0 Q670.6 244.0 674.6 244.0 L678.7 244.0 Q682.7 244.0 682.7 248.0 L682.7 394.0 Z" fill="#199e70"/>
+<rect x="684.7" y="313.0" width="12.1" height="81.0" fill="#3987e5"/>
+<path d="M684.7 311.0 L684.7 261.0 Q684.7 257.0 688.7 257.0 L692.9 257.0 Q696.9 257.0 696.9 261.0 L696.9 311.0 Z" fill="#199e70"/>
+<path d="M698.9 394.0 L698.9 248.0 Q698.9 244.0 702.9 244.0 L707.0 244.0 Q711.0 244.0 711.0 248.0 L711.0 394.0 Z" fill="#3987e5"/>
+<path d="M713.0 394.0 L713.0 248.0 Q713.0 244.0 717.0 244.0 L721.1 244.0 Q725.1 244.0 725.1 248.0 L725.1 394.0 Z" fill="#3987e5"/>
+<path d="M727.1 394.0 L727.1 248.0 Q727.1 244.0 731.1 244.0 L735.3 244.0 Q739.3 244.0 739.3 248.0 L739.3 394.0 Z" fill="#3987e5"/>
+<path d="M741.3 394.0 L741.3 248.0 Q741.3 244.0 745.3 244.0 L749.4 244.0 Q753.4 244.0 753.4 248.0 L753.4 394.0 Z" fill="#3987e5"/>
+<path d="M755.4 394.0 L755.4 248.0 Q755.4 244.0 759.4 244.0 L763.5 244.0 Q767.5 244.0 767.5 248.0 L767.5 394.0 Z" fill="#3987e5"/>
+<path d="M769.5 394.0 L769.5 248.0 Q769.5 244.0 773.5 244.0 L777.7 244.0 Q781.7 244.0 781.7 248.0 L781.7 394.0 Z" fill="#3987e5"/>
+<path d="M783.7 394.0 L783.7 248.0 Q783.7 244.0 787.7 244.0 L791.8 244.0 Q795.8 244.0 795.8 248.0 L795.8 394.0 Z" fill="#3987e5"/>
+<path d="M797.8 394.0 L797.8 248.0 Q797.8 244.0 801.8 244.0 L805.9 244.0 Q809.9 244.0 809.9 248.0 L809.9 394.0 Z" fill="#3987e5"/>
+<path d="M811.9 394.0 L811.9 248.0 Q811.9 244.0 815.9 244.0 L820.1 244.0 Q824.1 244.0 824.1 248.0 L824.1 394.0 Z" fill="#3987e5"/>
+<path d="M826.1 394.0 L826.1 248.0 Q826.1 244.0 830.1 244.0 L834.2 244.0 Q838.2 244.0 838.2 248.0 L838.2 394.0 Z" fill="#3987e5"/>
+<path d="M840.2 394.0 L840.2 248.0 Q840.2 244.0 844.2 244.0 L848.3 244.0 Q852.3 244.0 852.3 248.0 L852.3 394.0 Z" fill="#3987e5"/>
+<path d="M854.3 394.0 L854.3 248.0 Q854.3 244.0 858.3 244.0 L862.5 244.0 Q866.5 244.0 866.5 248.0 L866.5 394.0 Z" fill="#3987e5"/>
+<path d="M868.5 394.0 L868.5 248.0 Q868.5 244.0 872.5 244.0 L876.6 244.0 Q880.6 244.0 880.6 248.0 L880.6 394.0 Z" fill="#3987e5"/>
+<path d="M882.6 394.0 L882.6 248.0 Q882.6 244.0 886.6 244.0 L890.7 244.0 Q894.7 244.0 894.7 248.0 L894.7 394.0 Z" fill="#3987e5"/>
+<path d="M896.7 394.0 L896.7 248.0 Q896.7 244.0 900.7 244.0 L904.9 244.0 Q908.9 244.0 908.9 248.0 L908.9 394.0 Z" fill="#3987e5"/>
+<path d="M910.9 394.0 L910.9 248.0 Q910.9 244.0 914.9 244.0 L919.0 244.0 Q923.0 244.0 923.0 248.0 L923.0 394.0 Z" fill="#3987e5"/>
+<rect x="288.0" y="446" width="282.7" height="100" fill="#ffffff" fill-opacity="0.045"/>
+<line x1="288.0" y1="446" x2="288.0" y2="546" stroke="#555" stroke-width="1"/>
+<line x1="570.7" y1="446" x2="570.7" y2="546" stroke="#555" stroke-width="1"/>
+<line x1="76" y1="536.9" x2="924" y2="536.9" stroke="#2c2c2a"/>
+<text x="66.0" y="540.9" font-size="12" fill="#9d9d9d" text-anchor="end" font-weight="400">1 ms</text>
+<line x1="76" y1="506.6" x2="924" y2="506.6" stroke="#2c2c2a"/>
+<text x="66.0" y="510.6" font-size="12" fill="#9d9d9d" text-anchor="end" font-weight="400">10 ms</text>
+<line x1="76" y1="476.3" x2="924" y2="476.3" stroke="#2c2c2a"/>
+<text x="66.0" y="480.3" font-size="12" fill="#9d9d9d" text-anchor="end" font-weight="400">100 ms</text>
+<line x1="76" y1="446.0" x2="924" y2="446.0" stroke="#2c2c2a"/>
+<text x="66.0" y="450.0" font-size="12" fill="#9d9d9d" text-anchor="end" font-weight="400">1,000 ms</text>
+<text x="76.0" y="434.0" font-size="12" fill="#9d9d9d" text-anchor="start" font-weight="400">p95 latency (log scale)</text>
+<polyline points="83.1,476.0 97.2,476.0 111.3,476.0 125.5,476.0 139.6,476.0 153.7,476.0 167.9,476.0 182.0,476.0 196.1,476.0 210.3,476.0 224.4,476.0 238.5,476.0 252.7,476.0 266.8,476.0 280.9,476.0 295.1,476.0 309.2,476.0 323.3,476.0 337.5,476.0 351.6,475.9 365.7,476.0 379.9,541.0 394.0,542.0 408.1,542.1 422.3,542.9 436.4,542.3 450.5,543.6 464.7,543.9 478.8,543.7 492.9,543.4 507.1,542.5 521.2,543.8 535.3,543.1 549.5,543.4 563.6,544.5 577.7,542.4 591.9,541.9 606.0,542.5 620.1,543.0 634.3,541.9 648.4,543.4 662.5,541.2 676.7,542.4 690.8,476.0 704.9,476.0 719.1,476.0 733.2,476.0 747.3,476.0 761.5,476.0 775.6,476.0 789.7,476.0 803.9,476.0 818.0,476.0 832.1,476.0 846.3,476.0 860.4,476.0 874.5,476.0 888.7,476.0 902.8,476.0 916.9,476.0" fill="none" stroke="#cccccc" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="76.0" y="568.0" font-size="12" fill="#9d9d9d" text-anchor="middle" font-weight="400">0s</text>
+<text x="217.3" y="568.0" font-size="12" fill="#9d9d9d" text-anchor="middle" font-weight="400">10s</text>
+<text x="358.7" y="568.0" font-size="12" fill="#9d9d9d" text-anchor="middle" font-weight="400">20s</text>
+<text x="500.0" y="568.0" font-size="12" fill="#9d9d9d" text-anchor="middle" font-weight="400">30s</text>
+<text x="641.3" y="568.0" font-size="12" fill="#9d9d9d" text-anchor="middle" font-weight="400">40s</text>
+<text x="782.7" y="568.0" font-size="12" fill="#9d9d9d" text-anchor="middle" font-weight="400">50s</text>
+<text x="924.0" y="568.0" font-size="12" fill="#9d9d9d" text-anchor="middle" font-weight="400">60s</text>
+<circle cx="372.8" cy="543.0" r="4.5" fill="#e7e7e7" stroke="#181818" stroke-width="2"/>
+<rect x="380.8" y="457.0" width="312.7" height="42" rx="8" fill="#181818" fill-opacity="0.92" stroke="#2b2b2b"/>
+<text x="388.8" y="472.0" font-size="12.5" fill="#e7e7e7" text-anchor="start" font-weight="600">circuit opens 5 s after the outage:</text>
+<text x="388.8" y="489.0" font-size="12.5" fill="#9d9d9d" text-anchor="start" font-weight="400">failures answer in ~1 ms instead of ~100 ms</text>
+<rect x="685.7" y="191.0" width="236.8" height="42" rx="8" fill="#181818" fill-opacity="0.92" stroke="#2b2b2b"/>
+<text x="693.7" y="206.0" font-size="12.5" fill="#e7e7e7" text-anchor="start" font-weight="600">closes 8 s after recovery</text>
+<text x="693.7" y="223.0" font-size="12.5" fill="#9d9d9d" text-anchor="start" font-weight="400">(open timeout + 2 health checks)</text>
+</svg>
