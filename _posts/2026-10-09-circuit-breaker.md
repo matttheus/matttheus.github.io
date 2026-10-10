@@ -73,7 +73,7 @@ something goes wrong, it cuts the circuit instead of letting the damage spread.
 In software, you wrap the remote call in a circuit breaker object that watches
 for failures. It has three states:
 
-![The three states of a circuit breaker: CLOSED, OPEN and HALF-OPEN, and the transitions between them]({{ "/assets/img/posts/circuit-breaker-wtf/circuit-breaker-states.svg" | relative_url }})
+![The three states of a circuit breaker: CLOSED, OPEN and HALF-OPEN, and the transitions between them]({{ "/assets/img/posts/circuit-breaker/circuit-breaker-states.svg" | relative_url }})
 
 - Closed: everything is normal, calls go through. Failures are counted.
 - Open: after too many failures, the breaker trips. Calls fail
@@ -273,7 +273,7 @@ circuit, and the gray area is when I broke the dependency on purpose.
 
 #### When the dependency goes down
 
-![Responses per second during a 20-second outage of the dependency. Before the outage all responses are 200. For the first 5 seconds of the outage they are 502 errors that take 100 ms. Then the circuit opens and every response is a 503 that takes about 1 ms. The circuit closes 8 seconds after the dependency recovers.]({{ "/assets/img/posts/circuit-breaker-wtf/load-test-outage.svg" | relative_url }})
+![Responses per second during a 20-second outage of the dependency. Before the outage all responses are 200. For the first 5 seconds of the outage they are 502 errors that take 100 ms. Then the circuit opens and every response is a 503 that takes about 1 ms. The circuit closes 8 seconds after the dependency recovers.]({{ "/assets/img/posts/circuit-breaker/load-test-outage.svg" | relative_url }})
 
 Read it from left to right:
 
@@ -295,7 +295,7 @@ Read it from left to right:
 
 #### When the dependency gets slow
 
-![Responses per second while the dependency takes 3 seconds to answer. Most requests get an immediate 503 because the 13 slots are busy, and every 2 seconds a group of 504 timeouts appears. The slowest response in each second never goes above 2 seconds. The circuit opens 11 seconds after the slowdown starts.]({{ "/assets/img/posts/circuit-breaker-wtf/load-test-slow-dependency.svg" | relative_url }})
+![Responses per second while the dependency takes 3 seconds to answer. Most requests get an immediate 503 because the 13 slots are busy, and every 2 seconds a group of 504 timeouts appears. The slowest response in each second never goes above 2 seconds. The circuit opens 11 seconds after the slowdown starts.]({{ "/assets/img/posts/circuit-breaker/load-test-slow-dependency.svg" | relative_url }})
 
 Here the dependency doesn't fail, it just takes 3 seconds to answer, which is
 worse, because every call holds a slot for a long time:
@@ -315,7 +315,7 @@ kept processing calls nobody was waiting for anymore.
 
 #### When the traffic spikes
 
-![Responses per second while traffic ramps from 20 to 300 requests per second to a healthy dependency. Served requests stop growing at about 130 per second, the capacity of the semaphore, and everything above that line is rejected with a 503 in under 1 ms. The circuit stays closed the whole time.]({{ "/assets/img/posts/circuit-breaker-wtf/load-test-spike.svg" | relative_url }})
+![Responses per second while traffic ramps from 20 to 300 requests per second to a healthy dependency. Served requests stop growing at about 130 per second, the capacity of the semaphore, and everything above that line is rejected with a 503 in under 1 ms. The circuit stays closed the whole time.]({{ "/assets/img/posts/circuit-breaker/load-test-spike.svg" | relative_url }})
 
 This time the dependency is healthy, and it's *our* traffic that goes from 20
 to 300 requests per second:
