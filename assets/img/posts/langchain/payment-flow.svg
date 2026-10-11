@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" role="img" aria-labelledby="title desc" font-family="Inter, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="title">How a payment is checked</title>
+  <desc id="desc">A payment goes to a rule engine that scores 8 risk signals from 0 to 100, without an LLM. Below 30, the rules approve it alone. At 30 or more, a LangChain agent sends it to Claude Opus 5.5, which can call the get_transaction_history tool in a loop before answering. The answer is a structured verdict: approve debits the balance, escalate holds it for a human, decline doesn't move money. If the LLM call fails, the payment is escalated, never approved.</desc>
+
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8a8a8a"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4daafc"/>
+    </marker>
+    <marker id="arrow-small-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4daafc"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="960" height="650" rx="22" fill="#181818"/>
+  <rect x="0.5" y="0.5" width="959" height="649" rx="22" fill="none" stroke="#2b2b2b"/>
+
+  <!-- heading -->
+  <text x="40" y="52" font-size="24" font-weight="700" fill="#e7e7e7">How a payment is checked</text>
+  <text x="40" y="78" font-size="15" fill="#9d9d9d">Cheap rules first. Claude only sees the payments they flag.</text>
+
+  <!-- ===================== arrows ===================== -->
+
+  <!-- payment -> rule engine -->
+  <path d="M 240 170 L 284 170" stroke="#8a8a8a" stroke-width="3" fill="none" marker-end="url(#arrow-gray)"/>
+
+  <!-- rule engine -> approved (below 30) -->
+  <path d="M 570 170 L 694 170" stroke="#34d399" stroke-width="3" fill="none" marker-end="url(#arrow-green)"/>
+  <g transform="translate(582 152)">
+    <rect x="0" y="0" width="100" height="36" rx="18" fill="#16271f" stroke="#34d399" stroke-opacity="0.6"/>
+    <text x="50" y="23" font-size="14" font-weight="600" fill="#6ee7b7" text-anchor="middle">below 30</text>
+  </g>
+
+  <!-- rule engine -> agent (30 or more) -->
+  <path d="M 430 230 L 430 304" stroke="#fbbf24" stroke-width="3" fill="none" marker-end="url(#arrow-amber)"/>
+  <g transform="translate(375 249)">
+    <rect x="0" y="0" width="110" height="36" rx="18" fill="#2a2416" stroke="#fbbf24" stroke-opacity="0.6"/>
+    <text x="55" y="23" font-size="14" font-weight="600" fill="#fcd34d" text-anchor="middle">30 or more</text>
+  </g>
+
+  <!-- agent -> verdict -->
+  <path d="M 640 440 L 694 440" stroke="#4daafc" stroke-width="3" fill="none" marker-end="url(#arrow-blue)"/>
+
+  <!-- ===================== PAYMENT ===================== -->
+  <g transform="translate(40 110)" filter="url(#shadow)">
+    <rect x="0" y="0" width="200" height="120" rx="18" fill="#232323" stroke="#8a8a8a" stroke-opacity="0.55" stroke-width="1.5"/>
+    <circle cx="26" cy="32" r="7" fill="#cccccc"/>
+    <text x="42" y="38" font-size="19" font-weight="800" fill="#e7e7e7" letter-spacing="0.5">PAYMENT</text>
+    <text x="18" y="78" font-size="14.5" fill="#cccccc">Amount, merchant,</text>
+    <text x="18" y="100" font-size="14.5" fill="#cccccc">category and country.</text>
+  </g>
+
+  <!-- ===================== RULE ENGINE ===================== -->
+  <g transform="translate(290 110)" filter="url(#shadow)">
+    <rect x="0" y="0" width="280" height="120" rx="18" fill="#232323" stroke="#8a8a8a" stroke-opacity="0.55" stroke-width="1.5"/>
+    <circle cx="26" cy="32" r="7" fill="#cccccc"/>
+    <text x="42" y="38" font-size="19" font-weight="800" fill="#e7e7e7" letter-spacing="0.5">RULE ENGINE</text>
+    <rect x="190" y="17" width="72" height="26" rx="13" fill="#2e2e2e"/>
+    <text x="226" y="35" font-size="12.5" font-weight="600" fill="#cccccc" text-anchor="middle">no LLM</text>
+    <text x="18" y="78" font-size="14.5" fill="#cccccc">Scores <tspan font-weight="700" fill="#e7e7e7">8 risk signals</tspan>,</text>
+    <text x="18" y="100" font-size="14.5" fill="#cccccc">from 0 to 100, in plain code.</text>
+  </g>
+
+  <!-- ===================== APPROVED ===================== -->
+  <g transform="translate(700 110)" filter="url(#shadow)">
+    <rect x="0" y="0" width="220" height="120" rx="18" fill="#232323" stroke="#34d399" stroke-opacity="0.55" stroke-width="1.5"/>
+    <circle cx="26" cy="32" r="7" fill="#34d399" filter="url(#glow)"/>
+    <text x="42" y="38" font-size="19" font-weight="800" fill="#34d399" letter-spacing="0.5">APPROVED</text>
+    <text x="18" y="78" font-size="14.5" fill="#cccccc">By the rules alone,</text>
+    <text x="18" y="100" font-size="14.5" fill="#cccccc">without calling Claude.</text>
+  </g>
+
+  <!-- ===================== LANGCHAIN AGENT ===================== -->
+  <g transform="translate(40 310)" filter="url(#shadow)">
+    <rect x="0" y="0" width="600" height="260" rx="18" fill="#232323" stroke="#4daafc" stroke-opacity="0.55" stroke-width="1.5"/>
+    <circle cx="26" cy="32" r="7" fill="#4daafc" filter="url(#glow)"/>
+    <text x="42" y="38" font-size="19" font-weight="800" fill="#4daafc" letter-spacing="0.5">LANGCHAIN AGENT</text>
+    <rect x="466" y="17" width="116" height="26" rx="13" fill="#172231"/>
+    <text x="524" y="35" font-size="12.5" font-weight="600" fill="#93c5fd" text-anchor="middle" font-family="Consolas, 'Courier New', monospace">createAgent</text>
+
+    <!-- Claude -->
+    <rect x="30" y="80" width="200" height="90" rx="14" fill="#2e2e2e" stroke="#3d3d3d"/>
+    <text x="130" y="118" font-size="15" font-weight="700" fill="#e7e7e7" text-anchor="middle">Claude Opus 5.5</text>
+    <text x="130" y="142" font-size="12.5" fill="#9d9d9d" text-anchor="middle" font-family="Consolas, 'Courier New', monospace">ChatAnthropic</text>
+
+    <!-- tool -->
+    <rect x="360" y="80" width="210" height="90" rx="14" fill="#2e2e2e" stroke="#3d3d3d"/>
+    <text x="465" y="118" font-size="12.5" font-weight="700" fill="#e7e7e7" text-anchor="middle" font-family="Consolas, 'Courier New', monospace">get_transaction_history</text>
+    <text x="465" y="142" font-size="12.5" fill="#9d9d9d" text-anchor="middle">tool() + zod schema</text>
+
+    <!-- loop -->
+    <path d="M 234 108 L 352 108" stroke="#4daafc" stroke-width="2" fill="none" marker-end="url(#arrow-small-blue)"/>
+    <text x="295" y="98" font-size="12" font-weight="600" fill="#93c5fd" text-anchor="middle">tool call</text>
+    <path d="M 356 142 L 238 142" stroke="#4daafc" stroke-width="2" fill="none" marker-end="url(#arrow-small-blue)"/>
+    <text x="295" y="162" font-size="12" font-weight="600" fill="#93c5fd" text-anchor="middle">result</text>
+
+    <text x="30" y="212" font-size="14.5" fill="#cccccc">Loops until Claude stops calling tools and <tspan font-weight="700" fill="#e7e7e7">answers</tspan>.</text>
+    <text x="30" y="236" font-size="14.5" fill="#cccccc">The tool only sees the history of <tspan font-weight="700" fill="#e7e7e7">this one account</tspan>.</text>
+  </g>
+
+  <!-- ===================== VERDICT ===================== -->
+  <g transform="translate(700 310)" filter="url(#shadow)">
+    <rect x="0" y="0" width="220" height="260" rx="18" fill="#232323" stroke="#4daafc" stroke-opacity="0.55" stroke-width="1.5"/>
+    <circle cx="26" cy="32" r="7" fill="#e7e7e7"/>
+    <text x="42" y="38" font-size="19" font-weight="800" fill="#e7e7e7" letter-spacing="0.5">VERDICT</text>
+    <text x="18" y="64" font-size="12" fill="#9d9d9d" font-family="Consolas, 'Courier New', monospace">providerStrategy + zod</text>
+
+    <g transform="translate(18 80)">
+      <rect x="0" y="0" width="184" height="50" rx="12" fill="#16271f" stroke="#34d399" stroke-opacity="0.5"/>
+      <text x="14" y="21" font-size="14.5" font-weight="700" fill="#6ee7b7">approve</text>
+      <text x="14" y="40" font-size="12.5" fill="#cccccc">debits the balance</text>
+    </g>
+    <g transform="translate(18 138)">
+      <rect x="0" y="0" width="184" height="50" rx="12" fill="#2a2416" stroke="#fbbf24" stroke-opacity="0.5"/>
+      <text x="14" y="21" font-size="14.5" font-weight="700" fill="#fcd34d">escalate</text>
+      <text x="14" y="40" font-size="12.5" fill="#cccccc">held for a human</text>
+    </g>
+    <g transform="translate(18 196)">
+      <rect x="0" y="0" width="184" height="50" rx="12" fill="#2a1d1d" stroke="#f87171" stroke-opacity="0.5"/>
+      <text x="14" y="21" font-size="14.5" font-weight="700" fill="#fca5a5">decline</text>
+      <text x="14" y="40" font-size="12.5" fill="#cccccc">no money moves</text>
+    </g>
+  </g>
+
+  <!-- ===================== failure note ===================== -->
+  <g transform="translate(120 590)">
+    <rect x="0" y="0" width="440" height="36" rx="18" fill="#2a1d1d" stroke="#f87171" stroke-opacity="0.6"/>
+    <path d="M17 12 L29 24 M29 12 L17 24" stroke="#fca5a5" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="40" y="23" font-size="14" font-weight="600" fill="#fca5a5">If the LLM call fails: escalate, never approve</text>
+  </g>
+</svg>
