@@ -2,7 +2,7 @@
 layout: page
 title: Contact
 permalink: /contact/
-description: How to reach Matheus: email, GitHub, YouTube and LinkedIn.
+description: "How to reach Matheus: email, GitHub, YouTube and LinkedIn."
 ---
 
 Want to exchange ideas, propose a project, or just say hi? These are the channels:
